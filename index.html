@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- details  tag-->
+    <details>
+      <summary>click to see more</summary>
+      <p>This is some additionl info that is hidden by default.</p>
+    </details>
+
+    <!-- mark tag -->
+    <p>Here is some text with the <mark>highlighted</mark> word.</p>
+
+    <!-- abbreviation tag -->
+    <p>
+      I hope for the
+      <abbr title="National Areonatics and space association">NASA</abbr>
+    </p>
+
+    <!-- cite tag -->
+    <p>My fav movie is <cite>Avengers</cite></p>
+
+    <!-- time tag -->
+    <p>
+      The event starts at
+      <time datetime="2024-08-22:00">7:00 PM on August 22, 2024</time>
+    </p>
+
+    <!-- data list -->
+    <label for="browser">Choose your browser form the list:</label>
+    <input type="text" list="browsers" id="browser" name="browser" />
+    <datalist id="browsers">
+      <option value="Chrome"></option>
+      <option value="Safari"></option>
+      <option value="Edge"></option>
+      <option value="Opera"></option>
+    </datalist>
+
+    <!-- progress -->
+    <p>Downloading progress: <progress value="70" max="100"></progress> 70%</p>
+
+    <!-- meter -->
+    <p>disk usage: <meter value="0.6"></meter> 60%</p>
+
+    <!-- figure -->
+    <figure>
+      <img src="./assets/man-2.jpg" alt="A man" width="300px" height="auto" />
+      <figcaption>A man</figcaption>
+    </figure>
+
+    <!-- bdi -->
+    <p>user<bdi>アラビンド</bdi>: 90 points</p>
+
+    <!-- dialog tag -->
+    <button id="openDialog">Open Dialog</button>
+    <dialog id="dialogBox">
+      <p>This is a dialog box!</p>
+      <button id="closeDialog">Close</button>
+    </dialog>
+
+    <!-- template -->
+    <template id="template">
+      <h2>This is a template</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sapiente
+        enim tenetur aliquid omnis cumque quia asperiores placeat similique ab
+        sunt nam vero architecto tempore possimus, ipsa facere necessitatibus
+        magni.
+      </p>
+    </template>
+    <div id="container"></div>
+    <button id="showTemplate">Show</button>
+
+    <!-- picture -->
+    <picture>
+      <source media="(min-width:650px)" srcset="man-2.jpg" />
+      <source media="(min-width:450px)" srcset="man-2.jpg" />
+      <img src="./assets/man-2.jpg" alt="" />
+    </picture>
+
+    <!-- audio  and video-->
+    <audio src="./assets/crash.mp3" type="audio/mpeg" controls>
+      Your browserdoes not upport the audio element
+    </audio>
+
+    <video
+      src="./assets/video.mp4"
+      type="video/mp4"
+      width="520"
+      height="440"
+      controls
+    ></video>
+
+    <!-- canvas -->
+    <canvas
+      id="myCanvas"
+      width="600"
+      height="500"
+      style="border: 2px solid tomato; background-color: lightpink"
+    ></canvas>
+
+    <!-- no script -->
+    <noscript>
+      <p>
+        This website requires javascript to function properly. Please enable it.
+      </p>
+    </noscript>
+
+    <!-- kbd -->
+    <p>Press <kbd>Ctrl</kbd> + <kbd>c</kbd> to copy text.</p>
+
+    <!-- samp -->
+    <p>This program output was: <samp>ERROR:file not found</samp></p>
+
+    <!-- code -->
+    <p>Use the <code>getElementById</code> method used as an element</p>
+
+    <!-- pre tag -->
+    <pre>
+function greet(){
+        console.log("hello","world")
+    }</pre
+    >
+
+    <script>
+      const dialogEl = document.getElementById("dialogBox");
+      const openEl = document.getElementById("openDialog");
+      const closeEl = document.getElementById("closeDialog");
+
+      openEl.addEventListener("click", () => {
+        dialogEl.showModal();
+      });
+
+      closeEl.addEventListener("click", () => {
+        dialogEl.close();
+      });
+
+      const template = document.getElementById("template");
+      const container = document.getElementById("container");
+      const show = document.getElementById("showTemplate");
+
+      const clone = template.content.cloneNode(true);
+
+      show.addEventListener("click", () => {
+        container.appendChild(clone);
+      });
+
+      // canvas
+      const canvas = document.getElementById("myCanvas");
+      const context = canvas.getContext("2d");
+      context.fillStyle = "#FF0000";
+      //   context.fillStroke = "#FF0000";
+      context.fillRect(0, 0, 150, 75);
+    </script>
+  </body>
+</html>
